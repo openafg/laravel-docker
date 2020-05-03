@@ -4,23 +4,23 @@ This repository provides you a development environment without requiring you to 
 
 ## Installation
 
-1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
+1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/).
 
-2. Copy `docker-compose.yml` file to your project root path, and edit it according to your needs
+2. Copy `docker-compose.yml` file to your project root path, and edit it according to your needs.
 
 3. From your project directory, start up your application by running:
 
 ```sh
 docker-compose up
 ```
-4. You can run composer or npm or artisan through docker. For instance:
+4. You can run `composer` or `npm` or `artisan` through docker. For instance:
 
 ```sh
 docker-compose exec app composer install
 docker-compose exec app php artisan migrate
 docker-compose exec npm $yourCommandHere
 ```
-But I have already provided a `script.sh` file that helps us run our commands easily:
+But I have already provided a `script.sh` command line tool that helps us run our commands easily:
 ```sh
 bash script.sh -a "migrate" # This command can run php artisan migrate
 bash script.sh -c "require 'package-name'" # Install composer package
