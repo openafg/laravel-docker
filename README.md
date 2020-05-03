@@ -1,8 +1,8 @@
-# Docker Images for Laravel development
+# Docker Images for Laravel Development
 
 This repository provides you a development environment without requiring you to install PHP, a web server, and any other server software on your local machine. For this, it requires Docker and Docker Compose.
 
-## Installation (development)
+## Installation
 
 1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
 
@@ -20,7 +20,7 @@ docker-compose exec app composer install
 docker-compose exec app php artisan migrate
 docker-compose exec npm $yourCommandHere
 ```
-But I have provide a `script.sh` file for running our commands easily:
+But I have already provided a `script.sh` file that helps us run our commands easily:
 ```sh
 bash script.sh -a "migrate" # This command can run php artisan migrate
 bash script.sh -c "require 'package-name'" # Install composer package
@@ -28,9 +28,9 @@ bash script.sh -c "require 'package-name'" # Install composer package
 ## Customize Docker Images
 
 These docker images are configured in `docker-compose.yml` file 
-and also the prodaction version `docker-compose.production.yml`.
+and also the production version is `docker-compose.production.yml`.
 
-If you'r not using vuejs with your laravel application you can simply comment the npm container.
+If you're not using Vuejs with your Laravel application, you can simply comment the `npm` container.
 ```
 npm:
     container_name: npm
@@ -41,14 +41,14 @@ npm:
     networks: 
       - application-network
 ```
-## MySQL configuration
-This is a simple enviroment configuration I have provided in `docker-compose.yml` file:
+## MySQL Configuration
+This is a simple environment configuration I have provided in `docker-compose.yml` file:
 ```
 environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: password
 ```
-But you can make it professional:
+But you can add more configurations to your MySQL by adding:
 ```
 environment:
       MYSQL_DATABASE: 'laravel'
@@ -58,8 +58,7 @@ environment:
 ```
 ## Deployment
 When you're ready to deploy your Laravel application to production, there are some important things you can do to make sure your application is running as efficiently as possible.
-Read [this doc](https://laravel.com/docs/7.x/deployment) to prepare your project. But I have provided the nginx configuration
-in two diffrent enviroment `development` and `production`. I have enabled the caching server and gzip in nginx.
+Read [this doc](https://laravel.com/docs/7.x/deployment) to prepare your project. But I have provided the `nginx` configuration in two diffrent environments, `development` and `production`, and also I have enabled the caching server and gzip in `nginx`.
 ```
 server {
     gzip on;
@@ -128,7 +127,7 @@ server {
 
 ## Contributing
 
-Contributions are welcome!
+Contributions are very welcome!
 Leave an issue on Github, or create a Pull Request.
 
 ## Licence
